@@ -28,7 +28,11 @@ extra_script() {
 }
 
 main() {
-  drush_site_install
+  SITE_INSTALL=${SITE_INSTALL:-true}
+  if [ "$SITE_INSTALL" = true ]; then
+    drush_site_install
+  fi
+
   extra_script
   exec apache2-foreground
   exit 1
