@@ -1,0 +1,20 @@
+# For customization options see: https://docs.docker.com/compose/yml/
+web:
+  build: .
+  links:
+    - db:mysql
+  ports:
+    - "80:80"
+  volumes:
+    - /var/www/html
+    - /var/www/private
+
+db:
+  image: mysql
+  environment:
+    MYSQL_DATABASE: drupal
+    MYSQL_USER: drupal
+    MYSQL_PASSWORD: drupal
+    MYSQL_ROOT_PASSWORD: password
+  volumes:
+    - /var/lib/mysql
