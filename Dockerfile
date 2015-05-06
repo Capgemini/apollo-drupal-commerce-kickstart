@@ -37,6 +37,9 @@ RUN curl -fSL "http://ftp.drupal.org/files/projects/commerce_kickstart-${COMMERC
   && rm drupal.tar.gz \
   && chown -R www-data:www-data sites
 
-ADD entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
+COPY default.settings.php sites/default/settings.php
 RUN chmod 755 /*.sh
-CMD ["/entrypoint.sh"]
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["apache2-foreground"]

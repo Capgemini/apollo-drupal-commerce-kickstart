@@ -37,7 +37,7 @@ container. Both containers should be linked and the Commerce Kickstart distribut
 ### Building the image standalone
 
 ```
-docker run --rm --name commerce_kickstart --link db:mysql tayzlor/apollo-commerce-kickstart:latest
+docker run --rm --name commerce_kickstart --link db:mysql capgemini/apollo-commerce-kickstart:latest
 ```
 
 ...where db:mysql matches the name and alias of your DB instance. The values from your linked DB instance will be used to complete the setup.
